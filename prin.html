@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Jin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #333;
+            text-align: center;
+            transition: background 0.5s, color 0.5s;
+        }
+        header {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .section {
+            padding: 50px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background 0.5s, color 0.5s;
+        }
+        .timeline-item {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .quiz button {
+            background: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .quiz button:hover {
+            background: #ff866f;
+            transform: scale(1.05);
+        }
+        footer {
+            padding: 10px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        .timer {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #ff6f61;
+        }
+        .dark-mode {
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            color: white;
+        }
+        .dark-mode .section {
+            background: rgba(0, 0, 0, 0.7);
+            color: #ddd;
+        }
+        .dark-mode header {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .dark-mode footer {
+            color: #aaa;
+        }
+    </style>
+    <script>
+        // Actualizar el temporizador
+        function updateTimer() {
+            const startDate = new Date('2023-04-13T00:00:00'); // Fecha desde que nos escribimos
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').textContent = `Han pasado ${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos desde que nos conocimos.`;
+        }
+        setInterval(updateTimer, 1000);
+
+        // Cuenta regresiva
+        function countdownTo(dateString, elementId) {
+            const eventDate = new Date(dateString);
+            setInterval(() => {
+                const now = new Date();
+                const diff = eventDate - now;
+
+                if (diff <= 0) {
+                    document.getElementById(elementId).textContent = "¡Es el gran día! 🎉";
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000)) / 1000);
+
+               ;
+            }, 1000);
+        }
+        countdownTo('2025-02-20T00:00:00', 'countdown');
+
+        // Alternar modo oscuro
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-heart"></i> Para mi Jin ❤️</h1>
+        <p>Un pequeño regalo hecho con mucho amor.</p>
+    </header>
+
+
+    <section class="section">
+        <h2>Desde que nos conocimos</h2>
+        <div class="timeline">
+        <div class="timeline-item">
+            <img src="img/inicio.jpeg" alt="Salida en enero" class="timeline-img">
+        </div>
+    </div>
+        <p><strong>13 de abril de 2023:</strong> El día que nos escribimos por primera vez. ❤️</p>
+        <p class="timer" id="timer"></p>
+        <p id="countdown"></p>
+    </section>
+    
+
+    <section class="section">
+        <h2>Nuestros Momentos</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <img src="img/primer_encuentro.jpeg" alt="Primer encuentro" class="timeline-img">
+                <p><strong>22 de diciembre de 2023:</strong> ¡Nos conocimos en persona por primera vez! 🌟</p>
+            </div>
+            <div class="timeline-item">
+                <img src="img/salida_enero.jpg" alt="Salida en enero" class="timeline-img">
+                <p><strong>10 de enero de 2024:</strong> Nuestra segunda salida, ¡fue un día inolvidable! No tengo 😥fotitos si tienes me avisas jeje💕</p>
+            </div>
+            <div class="timeline-item">
+                <img src="img/tercera_salida.jpeg" alt="Salida en febrero" class="timeline-img">
+                <p><strong>1 de febrero de 2024:</strong> Una salida más, con más recuerdos hermosos juntos. 🥰</p>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .timeline-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    
+        .timeline-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
+        .timeline p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    
+        .timeline strong {
+            color: #ff6f61;
+        }
+    </style>
+
+    <section class="section">
+        <h2>Nuestra Galería</h2>
+        <div class="gallery">
+            <img src="img/1.jpeg" alt="Foto 1">
+            <img src="img/2.jpg" alt="Foto 2">
+            <img src="img/3.jpeg" alt="Foto 3">
+            <img src="img/4.jpeg" alt="Foto 4">
+            <img src="img/5.jpg" alt="Foto 5">
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Un Mensaje para Ti</h2>
+        <p>"Feliz Día de San Valentín, mi bb 🥰
+            ¿Sabes? A veces pienso que el universo fue muy sabio al cruzar nuestros caminos. No sé si fue casualidad o destino, pero lo que sí sé es que tú llegaste a mi vida cuando más te necesitaba, aunque aún no lo supiera.
+            
+            Desde ese primer mensaje hasta cada momento que hemos compartido en persona, tú has hecho que mi vida sea más bonita. Cada vez que nos encontramos, siento que el tiempo se detiene, como si nada más importara en el mundo excepto tú y yo. Esos instantes son los que guardo como los tesoros más valiosos en mi corazón.
+            
+            Eres mi persona favorita, Jin. Cada sonrisa tuya ilumina mis días, y cada abrazo me hace sentir que todo estará bien, no importa lo difícil que sea la vida. Gracias por ser tan único, tan auténtico, y por regalarme la suerte de conocerte. Verte en persona me confirmó lo que siempre sentí: que eres alguien increíble, alguien a quien siempre quiero cuidar, apoyar y llenar de felicidad.
+            
+            A veces pienso en lo que has pasado, en tu fortaleza, y no puedo evitar admirarte aún más. Quiero que sepas que no estás solo, que yo estoy aquí para ti, siempre. Si alguna vez sientes dudas, inseguridades o tristeza, recuerda que tienes a alguien que te quiere de una manera que no puede explicarse con palabras.
+            
+            Jin, no hay distancia que pueda separar lo que siento por ti. No hay día en que no piense en lo afortunada que soy por tenerte en mi vida. Y aunque el futuro sea incierto, quiero caminarlo contigo, porque contigo todo vale la pena.
+            
+            Te quiero más allá de lo que las palabras pueden expresar. Gracias por ser mi compañero, mi amigo y mi San Valentín. Hoy celebro no solo el amor, sino a ti, por ser quien eres y por hacerme tan feliz. ❤️
+            
+            Con la bendición de Dios, siempre, tu Mitzy. 🌹💕"</p>
+    </section>
+
+    <section class="section quiz">
+        <h2>¡Juegos para ti!</h2>
+    
+        <!-- Juego 1: Adivina la primera película -->
+        <div class="quiz-game">
+            <h3>1. ¿Cuál fue la primera película que vimos juntos?</h3>
+            <button onclick="alert('¡Muy bien bb! 🎉')">Mufasa: El rey león</button>
+            <button onclick="alert('¡Ese noo tonto! 😅')">Starship Troopers</button>
+        </div>
+    
+        <!-- Juego 2: Frases románticas -->
+        <div class="quiz-game">
+            <h3>2. ¿Cuál de estas frases románticas te he dicho más veces?</h3>
+            <button onclick="alert('¡Correcto! Siempre digo eso porque es verdad. ❤️')">"Mi culoncito🍑"</button>
+            <button onclick="alert('¡Casi! Aunque lo pienso, no te lo digo tanto.')">"Sin ti no puedo vivir."</button>
+        </div>
+    
+        <!-- Juego 3: Recuerdo especial -->
+        <div class="quiz-game">
+            <h3>3. ¿Qué lugar fue nuestra primera salida?</h3>
+            <button onclick="alert('¡Exacto bb! Fue un día especial. 🥰')">Mall del Sur</button>
+            <button onclick="alert('¡No, bb! Ese fue otro día. 😅')">Hotel</button>
+        </div>
+    
+        <!-- Juego 4: Verdadero o Falso -->
+        <div class="quiz-game">
+            <h3>4. Verdadero o falso: "Me robaste un beso en nuestra primera salida."</h3>
+            <button onclick="alert('¡Jajaja sí, lo hiciste bb! 💋')">Verdadero</button>
+            <button onclick="alert('¡Mentiroso! No te hagas. 😜')">Falso</button>
+        </div>
+    
+        <!-- Juego 5: Nuestro número -->
+        <div class="quiz-game">
+            <h3>5. ¿Cuál es nuestro número especial?</h3>
+            <button onclick="alert('¡Sí bb! Sabes todo. 🌟')">13 de abril de 2023</button>
+            <button onclick="alert('¡Ese tambien es un numero especial! 😅')">22 de diciembre de 2024</button>
+        </div>
+    </section>
+    
+    <!-- Botón para cambiar a modo oscuro -->
+    <button onclick="toggleTheme()">Cambiar a modo oscuro</button>
+    
+    <footer>
+        <p>Hecho con 💖 por Mitzy</p>
+    </footer>
+    
+    <script>
+        // Función para cambiar entre modo oscuro y claro
+        function toggleTheme() {
+            const body = document.body;
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+            } else {
+                body.classList.add('dark-mode');
+            }
+        }
+    
+        // Estilo para modo oscuro
+        const style = document.createElement('style');
+        style.textContent = `
+            body.dark-mode {
+                background: linear-gradient(135deg, #2e2e2e, #555);
+                color: #f4f4f4;
+            }
+            body.dark-mode .section {
+                background: rgba(50, 50, 50, 0.9);
+            }
+            body.dark-mode button {
+                background: #ff6f61;
+                color: #fff;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
